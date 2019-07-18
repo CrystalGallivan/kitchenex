@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Security.Policy;
 using Dapper;
+using kitchenex.Models;
 
 namespace kitchenex.Repositories
 {
@@ -14,11 +15,11 @@ namespace kitchenex.Repositories
     {
       _db = db;
     }
-    public IEnumerable<Site> GetAll()
+    public IEnumerable<Models.Site> GetAll()
     {
       try
       {
-        return _db.Query<Site>("SELECT * FROM sites");
+        return _db.Query<Models.Site>("SELECT * FROM sites");
       }
       catch (Exception e)
       {
@@ -26,12 +27,12 @@ namespace kitchenex.Repositories
       }
     }
 
-    public Site GetById(int id)
+    public Models.Site GetById(int id)
     {
       try
       {
         string query = "SELECT * FROM sites WHERE id = @Id";
-        Site data = _db.QueryFirstOrDefault<Site>(query, new { id });
+        Models.Site data = _db.QueryFirstOrDefault<Models.Site>(query, new { id });
         if (data is null) throw new Exception("Invalid Id");
         return data;
       }
@@ -41,7 +42,7 @@ namespace kitchenex.Repositories
       }
     }
 
-    public Site Create(Site value)
+    public Models.Site Create(Models.Site value)
     {
       try
       {
@@ -58,7 +59,7 @@ namespace kitchenex.Repositories
       }
     }
 
-    public Site Update(Site value)
+    public Models.Site Update(Models.Site value)
     {
       try
       {
@@ -70,14 +71,13 @@ namespace kitchenex.Repositories
       WHERE id = @Id;
       SELECT * FROM sites WHERE id = @Id
       ";
-        return _db.QueryFirstOrDefault<Site>(query, value);
+        return _db.QueryFirstOrDefault<Models.Site>(query, value);
       }
       catch (Exception e)
       {
         throw e;
       }
     }
-
     public string Delete(int id)
     {
       try
