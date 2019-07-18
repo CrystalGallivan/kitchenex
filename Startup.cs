@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Data;
 using System.Linq;
 using System.Threading.Tasks;
+using kitchenex.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -32,6 +33,12 @@ namespace kitchenex
       services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);
 
       services.AddTransient<IDbConnection>(x => CreateDBContext());
+      services.AddTransient<SiteRepository>();
+      services.AddTransient<MenuRepository>();
+      services.AddTransient<RecipeRepository>();
+      services.AddTransient<UserRepository>();
+      services.AddTransient<InventoryRepository>();
+      services.AddTransient<IngredientRepository>();
     }
 
     private IDbConnection CreateDBContext()
