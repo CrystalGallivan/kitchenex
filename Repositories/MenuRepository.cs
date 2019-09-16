@@ -44,7 +44,7 @@ namespace kitchenex.Repositories
     {
       try
       {
-        string query = @"INSERT INTO users (name, kitchenId, siteId)
+        string query = @"INSERT INTO menus (name, kitchenId, siteId)
                         VALUES (@Name, @KitchenId, @SiteId);
                 SELECT LAST_INSERT_ID();";
         int id = _db.ExecuteScalar<int>(query, value);

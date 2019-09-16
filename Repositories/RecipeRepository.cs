@@ -44,7 +44,7 @@ namespace kitchenex.Repositories
     {
       try
       {
-        string query = @"INSERT INTO users (name, portions, portionSize, calories, side, allergensId,
+        string query = @"INSERT INTO recipes (name, portions, portionSize, calories, side, allergensId,
                           stationId, unitId, kitchenId, menuId, dayId)
                         VALUES (@Name, @Portions, @PortionSize, @Calories, @Side, @AllergensId,
                          @StationId, @UnitId, @KitchenId, @MenuId, @DayId);

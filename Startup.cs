@@ -39,6 +39,7 @@ namespace kitchenex
       services.AddTransient<UserRepository>();
       services.AddTransient<InventoryRepository>();
       services.AddTransient<IngredientRepository>();
+      services.AddTransient<KitchenRepository>();
     }
 
     private IDbConnection CreateDBContext()

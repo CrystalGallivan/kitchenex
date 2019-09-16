@@ -8,18 +8,18 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace kitchenex.Controllers
 {
-  [Route("auth/users")]
+  [Route("api/[controller]")]
   [ApiController]
-  public class AuthController : ControllerBase
+  public class KitchensController : ControllerBase
   {
-    private readonly UserRepository _repo;
-    public AuthController(UserRepository repo)
+    private readonly KitchenRepository _repo;
+    public KitchensController(KitchenRepository repo)
     {
       _repo = repo;
     }
     // GET api/values
     [HttpGet]
-    public ActionResult<IEnumerable<User>> Get()
+    public ActionResult<IEnumerable<Kitchen>> Get()
     {
       try
       {
@@ -33,7 +33,7 @@ namespace kitchenex.Controllers
 
     // GET api/values/5
     [HttpGet("{id}")]
-    public ActionResult<User> Get(int id)
+    public ActionResult<Kitchen> Get(int id)
     {
       try
       {
@@ -47,7 +47,7 @@ namespace kitchenex.Controllers
 
     // POST api/values
     [HttpPost]
-    public ActionResult Post([FromBody] User value)
+    public ActionResult Post([FromBody] Kitchen value)
     {
       try
       {
@@ -61,7 +61,7 @@ namespace kitchenex.Controllers
 
     // PUT api/values/5
     [HttpPut("{id}")]
-    public ActionResult Put(int id, [FromBody] User value)
+    public ActionResult Put(int id, [FromBody] Kitchen value)
     {
       try
       {
