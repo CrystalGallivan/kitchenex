@@ -6,6 +6,7 @@ use kitchenex;
 --   name VARCHAR(255) NOT NULL,
 --   PRIMARY KEY (id)
 -- )
+GET FROM allergens
 -- CREATE TABLE  stations
 -- (
 --   id INT AUTO_INCREMENT,
